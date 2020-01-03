@@ -16,7 +16,11 @@ type helloService struct {
 
 func (h *helloService) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	resp := new(pb.HelloReply)
-	resp.Message = "Hello " + in.Name + "!"
+	if in.Name == "Hi" {
+		resp.Message = "Hello"
+		return resp, nil
+	}
+	resp.Message = "not correct say again "
 	return resp, nil
 }
 func main() {

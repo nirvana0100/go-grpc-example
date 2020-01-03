@@ -18,7 +18,7 @@ func main() {
 	defer conn.Close()
 	client := pb.NewHelloClient(conn)
 	hr := new(pb.HelloRequest)
-	hr.Name = "grpc"
+	hr.Name = "Hi"
 	r, err := client.SayHello(context.Background(), hr)
 	if err != nil {
 		grpclog.Fatalln(err)
